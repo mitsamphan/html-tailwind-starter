@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "postcss styles.css -o src/styles.css",
-    "dev": "npm run build && live-server src --port=8080"
+    "build": "npx tailwindcss -i ./src/css/tailwind.styles.scss -o ./src/css/styles.css --watch",
+    "dev": "npm run build & live-server src --port=8080 --no-css-inject --wait=1000",
+    "production": "npx tailwindcss -i ./src/css/tailwind.styles.scss -o ./src/css/styles.css"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,11 @@
   "dependencies": {
     "autoprefixer": "^10.4.8",
     "live-server": "^1.2.2",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
     "tailwindcss": "^3.1.8"
   }
 }
